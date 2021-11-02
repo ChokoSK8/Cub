@@ -6,7 +6,7 @@
 /*   By: abrun <abrun@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/11/18 11:52:02 by abrun             #+#    #+#             */
-/*   Updated: 2020/11/20 13:23:40 by abrun            ###   ########.fr       */
+/*   Updated: 2021/11/02 12:04:09 by abrun            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,18 +19,20 @@ void	ft_getnbr(char *itoa, unsigned int n, int counter)
 	itoa[counter] = (n % 10) + '0';
 }
 
-int		ft_n_digit(int n)
+int	ft_n_digit(int n)
 {
 	int		n_digit;
 
 	n_digit = 0;
-	n > 0 ? n_digit : n_digit++;
+	if (n <= 0)
+		n_digit++;
 	while (n != 0)
 	{
 		n /= 10;
 		n_digit++;
 	}
-	n_digit == 0 ? n_digit += 1 : n_digit;
+	if (!n_digit)
+		n_digit++;
 	return (n_digit);
 }
 
@@ -43,7 +45,8 @@ char	*ft_itoa(int n)
 
 	n_bis = n;
 	n_digit = ft_n_digit(n);
-	if (!(itoa = malloc(n_digit + 1)))
+	itoa = malloc(n_digit + 1);
+	if (!itoa)
 		return (NULL);
 	counter = n_digit - 1;
 	if (n_bis < 0)

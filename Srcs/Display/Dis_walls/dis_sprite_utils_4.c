@@ -6,7 +6,7 @@
 /*   By: abrun <abrun@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/03/26 10:25:26 by abrun             #+#    #+#             */
-/*   Updated: 2021/03/26 10:25:59 by abrun            ###   ########.fr       */
+/*   Updated: 2021/11/02 13:58:29 by abrun            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,7 +17,10 @@ t_line	get_line_2_pts(t_vect pt_1, t_vector pt_2)
 	t_line	d;
 
 	if (round(pt_1.x) == round(pt_2.x))
+	{
 		d.c = pt_1.x;
+		d.a = -1;
+	}
 	else
 	{
 		d.c = 0;

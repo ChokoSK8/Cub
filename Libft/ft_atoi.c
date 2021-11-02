@@ -6,7 +6,7 @@
 /*   By: abrun <abrun@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/11/18 11:33:27 by abrun             #+#    #+#             */
-/*   Updated: 2020/11/18 14:43:28 by abrun            ###   ########.fr       */
+/*   Updated: 2021/11/02 11:58:04 by abrun            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -33,6 +33,7 @@ int	ft_atoi(const char *str)
 		res += *str - '0';
 		str++;
 	}
-	n_minus ? res *= -1 : res;
+	if (n_minus)
+		res *= -1;
 	return (res);
 }

@@ -6,7 +6,7 @@
 /*   By: abrun <abrun@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/11/20 15:18:03 by abrun             #+#    #+#             */
-/*   Updated: 2021/10/28 17:52:16 by abrun            ###   ########.fr       */
+/*   Updated: 2021/11/02 14:00:35 by abrun            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,7 +18,7 @@
 # include <unistd.h>
 # include <string.h>
 
-typedef struct		s_list
+typedef struct s_list
 {
 	void			*content;
 	struct s_list	*next;
@@ -33,7 +33,7 @@ t_list				*ft_lstlast(t_list *lst);
 t_list				*ft_lstnew(void *content);
 
 t_list				*ft_lstmap(t_list *lst, void *(*f)(void *),
-		void (*del)(void *));
+						void (*del)(void *));
 
 void				ft_lstdelone(t_list *lst, void (*del)(void *));
 
@@ -100,7 +100,7 @@ char				*ft_strmapi(char const *s, char (*f)(unsigned int, char));
 int					ft_strncmp(const char *s1, const char *s2, size_t n);
 
 char				*ft_strnstr(const char *haystack, const char *needle,
-		size_t len);
+						size_t len);
 
 char				*ft_strrchr(const char *s, int c);
 

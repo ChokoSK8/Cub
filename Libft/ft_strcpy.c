@@ -6,13 +6,13 @@
 /*   By: abrun <abrun@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/01/21 15:13:36 by abrun             #+#    #+#             */
-/*   Updated: 2021/01/21 15:15:38 by abrun            ###   ########.fr       */
+/*   Updated: 2021/11/02 12:07:31 by abrun            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-size_t		ft_strcpy(char *dest, char *src)
+size_t	ft_strcpy(char *dest, char *src)
 {
 	int		counter;
 

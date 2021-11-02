@@ -6,29 +6,32 @@
 /*   By: abrun <abrun@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/11/23 09:52:04 by abrun             #+#    #+#             */
-/*   Updated: 2020/11/25 09:12:47 by abrun            ###   ########.fr       */
+/*   Updated: 2021/11/02 12:05:22 by abrun            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-t_list		*ft_lstmap(t_list *lst, void *(*f)(void *), void (*del)(void *))
+t_list	*ft_lstmap(t_list *lst, void *(*f)(void *), void (*del)(void *))
 {
 	t_list		*newlst;
 	t_list		*tmp;
 
-	if (!(newlst = malloc(sizeof(t_list))))
+	newlst = malloc(sizeof(t_list));
+	if (!newlst)
 		return (0);
 	(void)(del);
 	if (lst)
 	{
-		if (!(newlst = ft_lstnew((f)(lst->content))))
+		newlst = ft_lstnew((f)(lst->content));
+		if (!newlst)
 			return (0);
 		lst = lst->next;
 	}
 	while (lst)
 	{
-		if (!(tmp = ft_lstnew((f)(lst->content))))
+		tmp = ft_lstnew((f)(lst->content));
+		if (!tmp)
 			return (0);
 		lst = lst->next;
 		ft_lstadd_back(&newlst, tmp);

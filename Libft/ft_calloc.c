@@ -6,7 +6,7 @@
 /*   By: abrun <abrun@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/11/18 11:41:09 by abrun             #+#    #+#             */
-/*   Updated: 2020/11/20 14:39:53 by abrun            ###   ########.fr       */
+/*   Updated: 2021/11/02 12:12:44 by abrun            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,7 +20,8 @@ void	*ft_calloc(size_t count, size_t size)
 
 	lenght = size * count;
 	counter = lenght;
-	if (!(mal = malloc(lenght)))
+	mal = malloc(lenght);
+	if (!mal)
 		return (0);
 	while (lenght-- > 0)
 		*mal++ = 0;

@@ -6,7 +6,7 @@
 /*   By: abrun <abrun@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/01/25 15:54:31 by abrun             #+#    #+#             */
-/*   Updated: 2021/11/02 11:06:03 by abrun            ###   ########.fr       */
+/*   Updated: 2021/11/02 12:17:06 by abrun            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -49,14 +49,14 @@ int	fill_w_h(t_param *param, char *line, int id)
 	if (id == 'w')
 	{
 		if (n > param->max_w)
-			param->width = param->max_w;
+			param->width = param->max_w * 9 / 10;
 		else
 			param->width = n;
 	}
 	else
 	{
 		if (n > param->max_h)
-			param->height = param->max_h;
+			param->height = param->max_h * 9 / 10;
 		else
 			param->height = n;
 	}
@@ -68,15 +68,21 @@ int	get_n(char *line)
 	char	*num;
 	int		c;
 	int		n;
+	int		n_len;
 
 	c = 0;
-	num = malloc(6);
+	n_len = 0;
+	while (ft_isdigit(line[n_len]))
+		n_len++;
+	if (n_len > 10 || (n_len == 10 && ft_strncmp("2147483647", line, 10) < 0))
+		return (0);
+	num = malloc(n_len + 1);
 	if (!num)
 	{
 		ft_putstr_fd("Error\nUn malloc a echoue\n", 2);
 		return (-1);
 	}
-	while (ft_isdigit(*line) && c < 6)
+	while (ft_isdigit(*line) && c < n_len)
 		num[c++] = *line++;
 	num[c] = 0;
 	n = ft_atoi(num);

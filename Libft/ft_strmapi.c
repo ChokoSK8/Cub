@@ -6,7 +6,7 @@
 /*   By: abrun <abrun@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/11/18 12:34:59 by abrun             #+#    #+#             */
-/*   Updated: 2020/11/20 10:44:49 by abrun            ###   ########.fr       */
+/*   Updated: 2021/11/02 12:09:15 by abrun            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,7 +17,8 @@ char	*ft_strmapi(char const *s, char (*f)(unsigned int, char))
 	char			*dst;
 	unsigned int	counter;
 
-	if (!(dst = malloc(ft_strlen(s) + 1)))
+	dst = malloc(ft_strlen(s) + 1);
+	if (!dst)
 		return (NULL);
 	counter = 0;
 	while (s[counter])

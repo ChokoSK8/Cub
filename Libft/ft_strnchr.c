@@ -6,13 +6,13 @@
 /*   By: abrun <abrun@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/01/21 15:00:32 by abrun             #+#    #+#             */
-/*   Updated: 2021/01/21 15:01:37 by abrun            ###   ########.fr       */
+/*   Updated: 2021/11/02 12:09:30 by abrun            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-int			ft_strnchr(char *s, char c, int n)
+int	ft_strnchr(char *s, char c, int n)
 {
 	while (*s && n--)
 	{

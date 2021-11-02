@@ -6,13 +6,13 @@
 /*   By: abrun <abrun@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/11/18 12:41:04 by abrun             #+#    #+#             */
-/*   Updated: 2020/11/20 14:38:54 by abrun            ###   ########.fr       */
+/*   Updated: 2021/11/02 12:10:30 by abrun            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-int				ft_findchr(char chr, char const *set)
+int	ft_findchr(char chr, char const *set)
 {
 	unsigned int	counter;
 
@@ -36,7 +36,7 @@ unsigned int	ft_get_start(char const *s1, char const *set)
 	return (start);
 }
 
-char			*ft_strtrim(char const *s1, char const *set)
+char	*ft_strtrim(char const *s1, char const *set)
 {
 	char			*strtrim;
 	size_t			s1_len;
@@ -47,7 +47,8 @@ char			*ft_strtrim(char const *s1, char const *set)
 	counter = 0;
 	s1_len = ft_strlen(s1);
 	end = s1_len - 1;
-	if (!(strtrim = malloc(sizeof(char) * (s1_len + 1))))
+	strtrim = malloc(sizeof(char) * (s1_len + 1));
+	if (!strtrim)
 		return (NULL);
 	if (s1_len > 0)
 	{

@@ -6,7 +6,7 @@
 /*   By: abrun <abrun@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/11/18 12:37:51 by abrun             #+#    #+#             */
-/*   Updated: 2020/11/25 09:10:28 by abrun            ###   ########.fr       */
+/*   Updated: 2021/11/02 12:11:57 by abrun            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,7 +24,7 @@ char	*ft_strnstr(const char *haystack, const char *needle, size_t len)
 	while (haystack[c] && c < len)
 	{
 		while ((haystack[c + c_n] == needle[c_n])
-				&& haystack[c + c_n] && c + c_n < len)
+			&& haystack[c + c_n] && c + c_n < len)
 			c_n++;
 		if (!needle[c_n])
 			return ((char *)&haystack[c]);

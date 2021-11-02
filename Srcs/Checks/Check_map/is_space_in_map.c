@@ -6,7 +6,7 @@
 /*   By: abrun <marvin@42.fr>                       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/10/28 14:05:24 by abrun             #+#    #+#             */
-/*   Updated: 2021/11/02 11:26:08 by abrun            ###   ########.fr       */
+/*   Updated: 2021/11/02 14:15:44 by abrun            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -29,7 +29,6 @@ int	is_space_in_map(char **map, int height, int width)
 					pt.x = width - 1;
 				else if (!check_around_sp(map, pt, height, width))
 				{
-					printf("pt : (%d, %d)\n", pt.x, pt.y);
 					ft_putstr_fd("Error\nEspace dans la map\n", 2);
 					return (1);
 				}

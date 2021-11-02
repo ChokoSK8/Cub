@@ -6,15 +6,15 @@
 /*   By: abrun <abrun@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/11/18 12:33:42 by abrun             #+#    #+#             */
-/*   Updated: 2021/10/28 18:06:15 by abrun            ###   ########.fr       */
+/*   Updated: 2021/11/02 12:11:41 by abrun            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-size_t		ft_strlen(const char *s)
+size_t	ft_strlen(const char *s)
 {
-	size_t strlen;
+	size_t	strlen;
 
 	strlen = 0;
 	if (!s)

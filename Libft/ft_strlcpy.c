@@ -6,13 +6,13 @@
 /*   By: abrun <abrun@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/11/18 12:32:03 by abrun             #+#    #+#             */
-/*   Updated: 2020/11/18 14:49:29 by abrun            ###   ########.fr       */
+/*   Updated: 2021/11/02 12:08:43 by abrun            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-size_t		ft_strlcpy(char *dst, const char *src, size_t dstsize)
+size_t	ft_strlcpy(char *dst, const char *src, size_t dstsize)
 {
 	size_t			srclen;
 	unsigned int	counter;

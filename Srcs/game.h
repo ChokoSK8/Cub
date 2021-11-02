@@ -6,7 +6,7 @@
 /*   By: abrun <abrun@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/01/25 10:46:38 by abrun             #+#    #+#             */
-/*   Updated: 2021/11/02 14:15:18 by abrun            ###   ########.fr       */
+/*   Updated: 2021/11/02 16:21:31 by abrun            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -222,15 +222,15 @@ void				display_multi_angle(t_param *param, int color);
 
 int					move_hero(int key, t_param *param);
 
-int					is_wall_around(t_player hero, t_img img);
+int					is_wall_around(t_vect hero, t_img img);
 
-int					is_wall_12(t_player hero, t_img img_map);
+void				move_key_left(t_player *hero, t_img img);
 
-int					is_wall_6(t_player hero, t_img img_map);
+void				move_key_right(t_player *hero, t_img img);
 
-void				move_key_12(t_player *hero, t_img img);
+void				move_key_forward(t_player *hero, t_img img);
 
-void				move_key_6(t_player *hero, t_img img);
+void				move_key_back(t_player *hero, t_img img);
 
 size_t				get_height(char *tab);
 

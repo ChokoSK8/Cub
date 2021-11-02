@@ -6,7 +6,7 @@
 /*   By: abrun <abrun@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/01/25 17:00:55 by abrun             #+#    #+#             */
-/*   Updated: 2021/10/29 16:21:00 by abrun            ###   ########.fr       */
+/*   Updated: 2021/11/02 16:26:41 by abrun            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,26 +23,67 @@ int	move_hero(int key, t_param *param)
 		free(param->mlx);
 		exit(0);
 	}
-	if (key == 'a')
-		move_key_12(&param->hero, param->img_map);
-	if (key == 'w')
-		move_key_6(&param->hero, param->img_map);
-	if (key == 'd')
-		param->hero.angle -= 1;
 	if (key == 's')
+		move_key_back(&param->hero, param->img_map);
+	else if (key == 'w')
+		move_key_forward(&param->hero, param->img_map);
+	else if (key == 'a')
+		move_key_left(&param->hero, param->img_map);
+	else if (key == 'd')
+		move_key_right(&param->hero, param->img_map);
+	else if (key == 65363)
+		param->hero.angle -= 1;
+	else if (key == 65361)
 		param->hero.angle += 1;
-	if (param->hero.angle < 0)
-		param->hero.angle += 360;
-	if (param->hero.angle > 360)
-		param->hero.angle %= 360;
+	param->hero.angle %= 360;
 	display_multi_angle(param, 0xFF);
 	mlx_put_image_to_window(param->mlx, param->win, param->img.image, 0, 0);
 	return (1);
 }
 
-void	move_key_12(t_player *hero, t_img img)
+void	move_key_left(t_player *hero, t_img img)
 {
-	if (!is_wall_12(*hero, img))
+	t_vect	h;
+
+	h.y = hero->vec.y - hero->speed
+		* cos(convert(hero->angle + 90));
+	h.x = hero->vec.x - hero->speed
+		* sin(convert(hero->angle + 90));
+	if (!is_wall_around(h, img))
+	{
+		hero->vec.y -= hero->speed
+			* cos(convert(hero->angle + 90));
+		hero->vec.x -= hero->speed
+			* sin(convert(hero->angle + 90));
+	}
+}
+
+void	move_key_right(t_player *hero, t_img img)
+{
+	t_vect	h;
+
+	h.y = hero->vec.y - hero->speed
+		* cos(convert(hero->angle - 90));
+	h.x = hero->vec.x - hero->speed
+		* sin(convert(hero->angle - 90));
+	if (!is_wall_around(h, img))
+	{
+		hero->vec.y -= hero->speed
+			* cos(convert(hero->angle - 90));
+		hero->vec.x -= hero->speed
+			* sin(convert(hero->angle - 90));
+	}
+}
+
+void	move_key_forward(t_player *hero, t_img img)
+{
+	t_vect	h;
+
+	h.y = hero->vec.y - hero->speed
+		* cos(convert(hero->angle));
+	h.x = hero->vec.x - hero->speed
+		* sin(convert(hero->angle));
+	if (!is_wall_around(h, img))
 	{
 		hero->vec.y -= hero->speed
 			* cos(convert(hero->angle));
@@ -51,9 +92,15 @@ void	move_key_12(t_player *hero, t_img img)
 	}
 }
 
-void	move_key_6(t_player *hero, t_img img)
+void	move_key_back(t_player *hero, t_img img)
 {
-	if (!is_wall_6(*hero, img))
+	t_vect	h;
+
+	h.y = hero->vec.y + hero->speed
+		* cos(convert(hero->angle));
+	h.x = hero->vec.x + hero->speed
+		* sin(convert(hero->angle));
+	if (!is_wall_around(h, img))
 	{
 		hero->vec.y += hero->speed
 			* cos(convert(hero->angle));

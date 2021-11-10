@@ -6,7 +6,7 @@
 /*   By: abrun <abrun@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/01/25 16:43:55 by abrun             #+#    #+#             */
-/*   Updated: 2021/11/02 12:37:16 by abrun            ###   ########.fr       */
+/*   Updated: 2021/11/10 12:54:15 by abrun            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -34,7 +34,7 @@ static t_vect	get_pt_a_dist(t_param *param, double angle)
 	return (pt_a);
 }
 
-void	display_multi_angle(t_param *param, int color)
+void	display_multi_angle(t_param *param)
 {
 	double			c;
 	t_vect			pt_a;
@@ -56,42 +56,14 @@ void	display_multi_angle(t_param *param, int color)
 		{
 			get_param_x(param, pt_a);
 			get_dim(&param->wall, get_d(param->hero, pt_a, c), param, angle);
-			draw_wall(param->wall, n_wall, param, color);
+			draw_wall(param->wall, param, n_wall);
 			n_wall++;
 			c -= n;
 		}
 	}
 }
 
-void	draw_wall(t_wall wall, int pos_x, t_param *param, int color)
-{
-	int			y;
-	int			pos;
-	int			start_y;
-
-	y = 0;
-	start_y = (param->height - wall.height) / 2;
-	if (color)
-	{
-		dis_textures(wall, param, pos_x);
-	}
-	else
-	{
-		while (y < wall.height)
-		{
-			pos = (pos_x * 4) + (param->img.size_line * (start_y + y));
-			if (start_y + y >= 0 && start_y + y < param->height)
-			{
-				param->img.data[pos] = color;
-				param->img.data[pos + 1] = color;
-				param->img.data[pos + 2] = color;
-			}
-			y++;
-		}
-	}
-}
-
-void	dis_textures(t_wall wall, t_param *param, int pos_x)
+void	draw_wall(t_wall wall, t_param *param, int pos_x)
 {
 	int			y;
 	int			start_y;
@@ -102,6 +74,7 @@ void	dis_textures(t_wall wall, t_param *param, int pos_x)
 	y_2 = 0;
 	y = 0;
 	start_y = (param->height - wall.height) / 2;
+	display_background(start_y, param, wall.height, pos_x);
 	while (y < wall.height)
 	{
 		if (start_y + y >= 0 && start_y + y < param->height)

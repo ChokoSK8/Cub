@@ -6,7 +6,7 @@
 /*   By: abrun <abrun@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/01/25 10:46:38 by abrun             #+#    #+#             */
-/*   Updated: 2021/11/02 16:21:31 by abrun            ###   ########.fr       */
+/*   Updated: 2021/11/10 12:41:46 by abrun            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -210,15 +210,15 @@ double				get_angle_right(int angle_h, double counter);
 
 void				dis_textures(t_wall wall, t_param *param, int pos_x);
 
-void				draw_wall(t_wall wall, int pos_x,
-						t_param *param, int color);
+void				draw_wall(t_wall wall, t_param *param,
+						int pos_x);
 
 t_vect				get_pt_a_90(t_param *param, double angle);
 
 double				get_distances(t_vect pt_h, t_vect pt_v, double *dist_h,
 						t_param param);
 
-void				display_multi_angle(t_param *param, int color);
+void				display_multi_angle(t_param *param);
 
 int					move_hero(int key, t_param *param);
 
@@ -293,13 +293,14 @@ void				change_hero_pos(t_param param, int color);
 
 void				display_pt_a(t_param param, int color, t_vect pt_a);
 
-void				display_background(t_param param);
+void				display_background(int start_y, t_param *param,
+						int wall_h, int pos_x);
 
-void				display_roof(t_param param, int height,
-						int width, int size_line);
+void				display_roof(t_param *param, int start_y,
+						int x, int size_line);
 
-void				display_floor(t_param param, int height,
-						int width, int size_line);
+void				display_floor(t_param *param, int start_y,
+						int x, int size_line);
 
 int					get_resolution(t_param *param, char *line);
 
@@ -515,4 +516,6 @@ int					check_file(char *av);
 void				ft_putstr_str(char *s, char *id, int fd);
 
 void				ft_putstr_char(char *s, char id, int fd);
+
+int					destroy_win(t_param *param);
 #endif

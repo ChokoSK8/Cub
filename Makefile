@@ -4,7 +4,7 @@ LIB_MLX		= Minilibx-linux/libmlx.a Minilibx-linux/libmlx_Linux.a
 
 LIB		= Libft/libft.a
 
-SRCS		= Free_param/free_param.c \
+SRCS		= Free_param/free_param.c Free_param/destroy_win.c \
 	Checks/Check_elements/check_all.c Checks/Check_elements/check_elements.c \
 	Checks/Check_map/check_map.c Checks/Check_map/is_surrounded.c Checks/Check_map/is_space_in_map.c \
 	Checks/check_file.c \
@@ -35,7 +35,7 @@ INC			= -I/usr/include -Imlx_linux
 
 FLAGS			= -Wall -Wextra -Werror
 
-MLX_FLAGS		= -lm -lX11 -lXext -FOpenGL -FAppKit
+MLX_FLAGS		= -lm -lX11 -lXext
 
 %.o: %.c
 			cc $(FLAGS) $(INC) -o $@ -c $?

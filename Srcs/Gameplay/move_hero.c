@@ -6,7 +6,7 @@
 /*   By: abrun <abrun@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/01/25 17:00:55 by abrun             #+#    #+#             */
-/*   Updated: 2021/11/02 16:26:41 by abrun            ###   ########.fr       */
+/*   Updated: 2021/11/10 12:24:30 by abrun            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,7 +14,6 @@
 
 int	move_hero(int key, t_param *param)
 {
-	display_background(*param);
 	if (key == 65307)
 	{
 		free_param(param);
@@ -36,7 +35,7 @@ int	move_hero(int key, t_param *param)
 	else if (key == 65361)
 		param->hero.angle += 1;
 	param->hero.angle %= 360;
-	display_multi_angle(param, 0xFF);
+	display_multi_angle(param);
 	mlx_put_image_to_window(param->mlx, param->win, param->img.image, 0, 0);
 	return (1);
 }

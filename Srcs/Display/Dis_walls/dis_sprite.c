@@ -6,7 +6,7 @@
 /*   By: abrun <abrun@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/03/26 10:22:30 by abrun             #+#    #+#             */
-/*   Updated: 2021/03/26 10:23:22 by abrun            ###   ########.fr       */
+/*   Updated: 2021/11/10 12:41:54 by abrun            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -76,7 +76,7 @@ double	display_sprite(int *n_wall, t_param *param,
 		get_dim(&param->wall, tab[2], param, tab[0]);
 		param->x = get_x_sprite(ends.v, pt);
 		if (is_print(pt, ends.v, ends.v_2))
-			draw_wall(param->wall, *n_wall, param, 0xFF);
+			draw_wall(param->wall, param, *n_wall);
 		*n_wall += 1;
 		counter -= tab[1];
 		pt = get_pt_sprite(tab[0], *param, param->map);

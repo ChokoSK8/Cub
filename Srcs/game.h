@@ -6,7 +6,7 @@
 /*   By: abrun <abrun@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/01/25 10:46:38 by abrun             #+#    #+#             */
-/*   Updated: 2021/11/10 12:41:46 by abrun            ###   ########.fr       */
+/*   Updated: 2022/01/14 16:56:23 by abrun            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -284,9 +284,6 @@ void				init_checks(t_param *param);
 
 void				display_map_case(t_map map, t_point img_pt, t_param param);
 
-void				display_map_empty_case(t_map map, t_point img_pt,
-						t_param param);
-
 void				display_map(t_map map, t_param param);
 
 void				change_hero_pos(t_param param, int color);
@@ -518,4 +515,6 @@ void				ft_putstr_str(char *s, char *id, int fd);
 void				ft_putstr_char(char *s, char id, int fd);
 
 int					destroy_win(t_param *param);
+
+int					display(t_param *param);
 #endif

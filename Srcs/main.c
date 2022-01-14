@@ -6,7 +6,7 @@
 /*   By: abrun <abrun@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/01/26 13:55:20 by abrun             #+#    #+#             */
-/*   Updated: 2021/11/10 12:27:32 by abrun            ###   ########.fr       */
+/*   Updated: 2022/01/14 17:08:35 by abrun            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -35,6 +35,7 @@ int	main(int ac, char **av)
 	mlx_put_image_to_window(param.mlx, param.win, param.img.image, 0, 0);
 	mlx_hook(param.win, 2, 1L << 0, move_hero, &param);
 	mlx_hook(param.win, 33, 1L << 17, destroy_win, &param);
+	mlx_loop_hook(param.mlx, display, &param);
 	mlx_loop(param.mlx);
 	return (0);
 }

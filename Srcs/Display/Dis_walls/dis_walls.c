@@ -6,7 +6,7 @@
 /*   By: abrun <abrun@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/01/25 16:43:55 by abrun             #+#    #+#             */
-/*   Updated: 2021/11/10 12:54:15 by abrun            ###   ########.fr       */
+/*   Updated: 2022/01/14 16:54:29 by abrun            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,11 +15,9 @@
 void	get_param_x(t_param *param, t_vect pt_a)
 {
 	if (pt_a.dir == 1)
-		param->x = ((int)round(pt_a.x) % param->map.len_pix)
-			% param->wall.img.width;
+		param->x = (int)round(pt_a.x) % param->wall.img.width;
 	else
-		param->x = ((int)round(pt_a.y) % param->map.len_pix)
-			% param->wall.img.width;
+		param->x = (int)round(pt_a.y) % param->wall.img.width;
 }
 
 static t_vect	get_pt_a_dist(t_param *param, double angle)
@@ -36,11 +34,11 @@ static t_vect	get_pt_a_dist(t_param *param, double angle)
 
 void	display_multi_angle(t_param *param)
 {
-	double			c;
-	t_vect			pt_a;
-	double			n;
-	int				n_wall;
-	double			angle;
+	double	c;
+	t_vect	pt_a;
+	double	n;
+	int		n_wall;
+	double	angle;
 
 	n = 30 / (double)param->width;
 	angle = 0;
@@ -65,17 +63,18 @@ void	display_multi_angle(t_param *param)
 
 void	draw_wall(t_wall wall, t_param *param, int pos_x)
 {
-	int			y;
-	int			start_y;
-	int			pos;
-	int			pos_2;
-	double		y_2;
+	int		y;
+	int		start_y;
+	int		pos;
+	int		pos_2;
+	double	y_2;
 
-	y_2 = 0;
-	y = 0;
 	start_y = (param->height - wall.height) / 2;
-	display_background(start_y, param, wall.height, pos_x);
-	while (y < wall.height)
+	y_2 = 0;
+	y = -1;
+	display_floor(param, wall.height + start_y, pos_x, param->img.size_line);
+	display_roof(param, start_y, pos_x, param->img.size_line);
+	while (++y < wall.height)
 	{
 		if (start_y + y >= 0 && start_y + y < param->height)
 		{
@@ -88,6 +87,5 @@ void	draw_wall(t_wall wall, t_param *param, int pos_x)
 			param->img.data[pos + 2] = param->wall.img.data[pos_2 + 2];
 		}
 		y_2 += wall.coef;
-		y++;
 	}
 }

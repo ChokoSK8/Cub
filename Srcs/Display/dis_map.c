@@ -6,7 +6,7 @@
 /*   By: abrun <abrun@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/01/25 16:57:31 by abrun             #+#    #+#             */
-/*   Updated: 2021/10/27 18:32:16 by abrun            ###   ########.fr       */
+/*   Updated: 2022/01/06 15:03:28 by abrun            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -54,33 +54,6 @@ void	display_map_case(t_map map, t_point img_pt, t_param param)
 			param.img_map.data[pos + 1] = 20;
 			param.img_map.data[pos + 2] = -100;
 			param.img_map.data[pos + 3] = 10;
-			img_pt.x += 1;
-		}
-		img_pt.x -= map.len_pix;
-		img_pt.y += 1;
-	}
-}
-
-void	display_map_empty_case(t_map map, t_point img_pt, t_param param)
-{
-	int		pos;
-	int		x_bis;
-	int		y_bis;
-
-	y_bis = map.len_pix;
-	while (y_bis--)
-	{
-		x_bis = map.len_pix;
-		while (x_bis--)
-		{
-			pos = (img_pt.x * 4) + (param.img_map.size_line * img_pt.y);
-			if (y_bis == map.len_pix - 1 || x_bis == map.len_pix - 1)
-			{
-				param.img_map.data[pos] = 0;
-				param.img_map.data[pos + 1] = 0;
-				param.img_map.data[pos + 2] = 0;
-				param.img_map.data[pos + 3] = 0;
-			}
 			img_pt.x += 1;
 		}
 		img_pt.x -= map.len_pix;

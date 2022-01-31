@@ -6,18 +6,11 @@
 /*   By: abrun <abrun@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/01/25 17:00:55 by abrun             #+#    #+#             */
-/*   Updated: 2022/01/14 16:56:03 by abrun            ###   ########.fr       */
+/*   Updated: 2022/01/31 13:20:55 by abrun            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../game.h"
-
-int	display(t_param *param)
-{
-	display_multi_angle(param);
-	mlx_put_image_to_window(param->mlx, param->win, param->img.image, 0, 0);
-	return (1);
-}
 
 int	move_hero(int key, t_param *param)
 {
@@ -41,7 +34,7 @@ int	move_hero(int key, t_param *param)
 		param->hero.angle -= 1;
 	else if (key == 65361)
 		param->hero.angle += 1;
-	param->hero.angle %= 360;
+	param->hero.angle = get_angle_right(param->hero.angle, 0);
 	return (1);
 }
 

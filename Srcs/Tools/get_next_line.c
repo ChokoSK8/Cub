@@ -6,7 +6,7 @@
 /*   By: abrun <abrun@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/11/26 08:21:26 by abrun             #+#    #+#             */
-/*   Updated: 2021/10/29 12:35:12 by abrun            ###   ########.fr       */
+/*   Updated: 2022/01/31 12:16:41 by abrun            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -41,6 +41,22 @@ int	checker_and_init(int fd, char **line)
 	return (1);
 }
 
+int	ft_isalnum(int c)
+{
+	if (((c >= 'a' && c <= 'z')
+			|| (c >= 'A' && c <= 'Z')
+			|| (c >= '0' && c <= '9')))
+		return (1);
+	return (0);
+}
+
+char	*error_strjoin(char *s1, char *strjoin)
+{
+	free(s1);
+	free(strjoin);
+	return (NULL);
+}
+
 char	*ft_strjoin_free(char *s1, char c)
 {
 	size_t			s1_len;
@@ -56,7 +72,12 @@ char	*ft_strjoin_free(char *s1, char c)
 	}
 	counter = -1;
 	while (++counter < s1_len)
-		strjoin[counter] = s1[counter];
+	{
+		if (ft_isalnum(s1[counter]))
+			strjoin[counter] = s1[counter];
+		else
+			return (error_strjoin(s1, strjoin));
+	}
 	free(s1);
 	strjoin[counter++] = c;
 	strjoin[counter] = 0;

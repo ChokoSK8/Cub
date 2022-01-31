@@ -6,7 +6,7 @@
 /*   By: abrun <abrun@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/01/25 15:55:36 by abrun             #+#    #+#             */
-/*   Updated: 2022/01/14 18:10:48 by abrun            ###   ########.fr       */
+/*   Updated: 2022/01/31 12:02:21 by abrun            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -58,7 +58,7 @@ int	*get_color_fill_tab(char *line)
 	tab[1] = ft_atoi(++line);
 	while (*line && *line != ',')
 		line++;
-	tab[2] = ft_atoi(line++);
+	tab[2] = ft_atoi(++line);
 	return (tab);
 }
 
@@ -81,7 +81,6 @@ int	fill_floor(t_param *param, int *tab)
 	while (counter < 3)
 	{
 		param->floor[counter] = tab[counter];
-		printf("floor[%d] = : %d\n", counter, param->floor[counter]);
 		counter++;
 	}
 	return (1);

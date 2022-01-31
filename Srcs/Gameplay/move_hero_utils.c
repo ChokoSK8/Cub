@@ -6,7 +6,7 @@
 /*   By: abrun <abrun@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/01/25 17:02:19 by abrun             #+#    #+#             */
-/*   Updated: 2021/11/02 16:01:51 by abrun            ###   ########.fr       */
+/*   Updated: 2022/01/31 13:20:44 by abrun            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -36,4 +36,11 @@ int	is_wall_around(t_vect hero, t_img img)
 		y++;
 	}
 	return (0);
+}
+
+int	display(t_param *param)
+{
+	display_multi_angle(param);
+	mlx_put_image_to_window(param->mlx, param->win, param->img.image, 0, 0);
+	return (1);
 }
